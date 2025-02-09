@@ -30,7 +30,17 @@ public class UserService {
 		return repo.save(obj);
 	}
 	
+	public void delete (String id) {
+		try {
+			if(!repo.existsById(id)) throw new ObjectNotFoundException(id);
+			repo.deleteById(id);
+		}catch(ObjectNotFoundException e) {
+			throw new ObjectNotFoundException(id);
+		}
+	}
+	
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getName(),objDto.getEmail());
 	}
+	
 }
