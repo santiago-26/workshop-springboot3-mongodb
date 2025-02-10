@@ -14,6 +14,7 @@ public class Instantiation implements CommandLineRunner{
 	@Autowired
 	private UserRepository userRepository ;
 	
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
